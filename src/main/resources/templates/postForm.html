@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新規投稿</title>
+</head>
+<body>
+<h1>新規投稿ページ</h1>
+<form action="#" th:action="@{/posts}" th:method="post" th:object="${postForm}">
+<!--    th:action="@{/post}" フォームっで投稿された際、次にアクセスするURLの指定-->
+<!--    th:method="post"フォームで投稿された際のHTTPメソッドの指定-->
+<!--    th:object="${postForm}"フォームの投稿内容を紐付けるFormクラスを指定-->
+    <input type="text" id="summaryInput" th:field="*{memo}">
+<!--    テキストボックスを作成するためのタグで th:field="*{memo}" で入力されたデータをpostFormオブジェクトの変数memoに代入するよう紐付け-->
+    <button type="submit">作成</button>
+</form>
+</body>
+</html>
