@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequiredArgsConstructor
@@ -28,5 +29,13 @@ public class PostController {
     @GetMapping("/postForm")
     public String showPostForm(@ModelAttribute("postForm") PostForm form){
         return "postForm";
+    }
+
+    @PostMapping("/posts")
+//    @PostMappingはHTTPメソッドPOSTに対応するアノテーション
+    public  String savePost(PostForm form){
+        postRepository.insert(form.getMemo());
+//        上のコードによってSQLへのデータ保存を行なっている
+        return  "redirect:/";
     }
 }
