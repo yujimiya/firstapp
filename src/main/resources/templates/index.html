@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
+<a th:href="@{postForm}">新規投稿画面</a>
+<!--一覧画面から投稿画面に遷移できるようリンクを設定-->
 <ul th:each="post:${postList}">
     <li th:text="${post.getMemo()}">
     </li>
